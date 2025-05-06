@@ -3,11 +3,11 @@ const app = express();
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const connectDB = require('./config/database');
+const authRouter = require('./routes/auth');
 
 connectDB()
     .then(()=> {
         console.log("DB Connected");
-
         app.listen(3000, ()=> {
             console.log("server running on port No. 3000");
         })
@@ -16,7 +16,6 @@ connectDB()
         console.error("DB not connected");
     })
 
-
 app.use(cors({
     origin: "http://localhost:5173",
     Credentials: true
@@ -24,6 +23,8 @@ app.use(cors({
 
 app.use(express.json());
 app.use(cookieParser());
+
+app.use("/", authRouter);
 
 app.use("/", (req, res)=> {
     res.send("HomePage on 3000")
