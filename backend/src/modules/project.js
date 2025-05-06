@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const User = require("./users");
+const User = require("./user");
 
 const project = new mongoose.Schema({
     name: {
@@ -7,7 +7,7 @@ const project = new mongoose.Schema({
         required: true,
     },
     user: {
-        type: mongoose.isObjectIdOrHexString,
+        type: mongoose.ObjectId,
         ref: User,
         required: true,
     },
