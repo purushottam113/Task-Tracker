@@ -1,0 +1,30 @@
+const express = require('express');
+const app = express();
+const cors = require('cors');
+const cookieParser = require('cookie-parser');
+const connectDB = require('./config/database');
+
+connectDB()
+    .then(()=> {
+        console.log("DB Connected");
+
+        app.listen(3000, ()=> {
+            console.log("server running on port No. 3000");
+        })
+    })
+    .catch((err)=> {
+        console.error("DB not connected");
+    })
+
+
+app.use(cors({
+    origin: "http://localhost:5173",
+    Credentials: true
+}))
+
+app.use(express.json());
+app.use(cookieParser());
+
+app.use("/", (req, res)=> {
+    res.send("HomePage on 3000")
+})
