@@ -5,6 +5,7 @@ import { Provider } from "react-redux"
 import appStore from '../utils/appStore'
 import Login from './Login'
 import SignUp from './SignUp'
+import Projects from './Projects'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
           <Route path='/' element= {<Body/>}>
             <Route path='/login' element= {<Login/>}/>
             <Route path='/signup' element= {<SignUp/>}/>
+            <Route path='/projects' element= {<Projects/>}/>
           </Route>
         </Routes>
       </BrowserRouter>

@@ -20,7 +20,7 @@ connectDB()
 
 app.use(cors({
     origin: "http://localhost:5173",
-    Credentials: true
+    credentials: true
 }))
 
 app.use(express.json());

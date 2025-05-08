@@ -35,7 +35,7 @@ authRouter.post("/login", async (req,res) => {
         }   
 
     } catch (err) {
-        res.status(400).json("Error: " + err.message)
+        res.status(400).json({message:  err.message})
     }
 })
 
@@ -78,7 +78,7 @@ authRouter.post("/signup", async (req,res)=>{
         res.json(user)
     }
     catch(err){
-        res.status(400).json("Error: " + err.message)
+        res.status(400).json({message:  err.message})
     }
 })
 

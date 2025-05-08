@@ -100,7 +100,7 @@ taskRouter.get("/task/list", userAuth, async (req, res)=> {
         res.json(taskList);
 
     } catch (error) {
-        res.status(404).send("Error: " + error.message);
+        res.status(500).json({message: error.message})
     }
 })
 
@@ -115,7 +115,7 @@ taskRouter.post("/delete/task", userAuth, async (req, res)=> {
         res.json(result);
 
     } catch (error) {
-        res.status(404).send("Error: " + error.message);
+        res.status(500).json({message: error.message})
     }
 })
 

@@ -47,7 +47,7 @@ projectRouter.get("/projectlist", userAuth, async (req, res)=> {
         res.json(projectList);
 
     } catch (error) {
-        res.status(404).send("Error: " + error.message);
+        res.status(500).json({message: error.message})
     }
 })
 
@@ -63,7 +63,7 @@ projectRouter.post("/delete/project", userAuth, async (req, res)=> {
         res.json(result);
 
     } catch (error) {
-        res.status(404).send("Error: " + error.message);
+        res.status(500).json({message: error.message})
     }
 })
 
