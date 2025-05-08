@@ -7,7 +7,7 @@ import { addUser } from '../utils/userSlice';
 
 const Login = () => {
   const [email, setEmail] = useState("123@gmail.com");
-  const [password, setPassword] = useState("password@123");
+  const [password, setPassword] = useState("Password@123");
   const [err, setErr] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();

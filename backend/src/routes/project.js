@@ -12,7 +12,6 @@ projectRouter.post("/add/project", userAuth, async (req, res)=> {
         }
 
         const user = req.user;
-        
         const projectCount = await Project.countDocuments({user: user._id});
         
         if(projectCount >= 4){
@@ -54,10 +53,8 @@ projectRouter.get("/projectlist", userAuth, async (req, res)=> {
 // Delete Projects
 projectRouter.post("/delete/project", userAuth, async (req, res)=> {
     try {
-        const user = req.user;
         const result = await Project.deleteOne({
-            name: req.body.name,
-            user: user._id
+            _id: req.body._id,
         })
 
         res.json(result);

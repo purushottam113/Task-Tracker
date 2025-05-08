@@ -36,7 +36,7 @@ const SignUp = () => {
 
   return (
     <div className='flex flex-col items-center mt-15 gap-5 rounded-2xl w-fit shadow-xl shadow-purple-400 p-10'>
-      <h1 className='text-xl font-bold text-purple-500'>Sign Up</h1>
+      <h1 className='text-xl font-bold text-purple-500'>Sign UP</h1>
       <label className=''>
         <div className="">
           <span 

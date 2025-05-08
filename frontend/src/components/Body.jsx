@@ -6,7 +6,7 @@ const Body = () => {
   return (
     <>
         <Navbar/>
-        <div className='flex justify-center'>
+        <div className='flex justify-center md:w-1/2 m-auto'>
           <Outlet/>
         </div>
     </>
