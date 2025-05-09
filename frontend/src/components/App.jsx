@@ -7,7 +7,7 @@ import Login from './Login'
 import SignUp from './SignUp'
 import Projects from './Projects'
 import TaskList from './TaskList'
-import CreateTask from './createTask'
+import CreateTask from './CreateTask'
 import TaskDetails from './TaskDetails'
 
 function App() {
