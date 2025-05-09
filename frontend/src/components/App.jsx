@@ -17,6 +17,7 @@ function App() {
       <BrowserRouter >
         <Routes>
           <Route path='/' element= {<Body/>}>
+            <Route index element={<Navigate to="/projects" replace />} />
             <Route path='/login' element= {<Login/>}/>
             <Route path='/signup' element= {<SignUp/>}/>
             <Route path='/projects' element= {<Projects/>}/>
