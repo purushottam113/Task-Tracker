@@ -22,8 +22,8 @@ connectDB()
     })
 
 app.use(cors({
-    origin: "http://localhost:5173",
-    // origin: "https://project-task-tracker.netlify.app",
+    // origin: "http://localhost:5173",
+    origin: "https://project-task-tracker.netlify.app",
     credentials: true
 }))
 
