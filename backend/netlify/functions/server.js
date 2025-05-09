@@ -4,9 +4,10 @@ const app = express();
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const connectDB = require('./config/database');
-const authRouter = require('./routes/auth');
-const projectRouter = require('./routes/project');
-const taskRouter = require('./routes/task');
+const connectDB = require('../../src/config/database');
+const authRouter = require('../../src/routes/auth');
+const projectRouter = require('../../src/routes/project');
+const taskRouter = require('../../src/routes/task');
 const serverless = require('serverless-http');
 
 const PORT = process.env.PORT
