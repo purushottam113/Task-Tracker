@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const cors = require('cors');
@@ -7,11 +8,13 @@ const authRouter = require('./routes/auth');
 const projectRouter = require('./routes/project');
 const taskRouter = require('./routes/task');
 
+const PORT = process.env.PORT
+
 connectDB()
     .then(()=> {
         console.log("DB Connected");
-        app.listen(3000, ()=> {
-            console.log("server running on port No. 3000");
+        app.listen(PORT, ()=> {
+            console.log("server running....");
         })
     })
     .catch((err)=> {

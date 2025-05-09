@@ -1,3 +1,4 @@
+require('dotenv').config();
 const jwt = require('jsonwebtoken');
 const User = require("../modules/user")
 
@@ -8,7 +9,7 @@ const userAuth = async (req, res, next)=>{
            return res.status(401).send("Unauthorized User123");
         }
         
-        const decodedUser = jwt.verify(token, "Moonlight")
+        const decodedUser = jwt.verify(token, process.env.JWT_SECRET)
         const {_id} = decodedUser
        const user = await User.findById(_id);
        if(!user){
