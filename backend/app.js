@@ -4,11 +4,9 @@ const app = express();
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const connectDB = require('./config/database');
-const connectDB = require('../../src/config/database');
-const authRouter = require('../../src/routes/auth');
-const projectRouter = require('../../src/routes/project');
-const taskRouter = require('../../src/routes/task');
-const serverless = require('serverless-http');
+const authRouter = require('./src/routes/auth');
+const projectRouter = require('./src/routes/project');
+const taskRouter = require('./src/routes/task');
 
 const PORT = process.env.PORT
 
@@ -39,5 +37,3 @@ app.use("/", taskRouter);
 app.use("/", (req, res)=> {
     res.send("HomePage on 3000")
 })
-
-module.exports.handler = serverless(app);
