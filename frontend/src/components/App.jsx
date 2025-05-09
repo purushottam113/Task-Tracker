@@ -1,5 +1,5 @@
 import '../App.css'
-import { BrowserRouter, Route, Routes } from "react-router"
+import { BrowserRouter, Navigate, Route, Routes } from "react-router"
 import Body from './Body'
 import { Provider } from "react-redux"
 import appStore from '../utils/appStore'
@@ -11,7 +11,6 @@ import CreateTask from './CreateTask'
 import TaskDetails from './TaskDetails'
 
 function App() {
-
   return (
     <Provider store={appStore}>
       <BrowserRouter >
