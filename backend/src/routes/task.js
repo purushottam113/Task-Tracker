@@ -11,7 +11,7 @@ taskRouter.post("/create/task", userAuth, async (req, res)=> {
     try {
         const title = req?.body?.title;
         const description = req?.body?.description;
-        const status = req?.body?.status;
+        const status = req?.body?.status || "Pending";
         const projectId = req?.body?.projectId;
 
         const validStatus = ['Pending', 'In Progress', 'Completed'];
@@ -81,11 +81,10 @@ taskRouter.put("/update/task", userAuth, async (req, res)=> {
     }
 });
 
-// Get Task List
-taskRouter.get("/task/list", userAuth, async (req, res)=> {
+// Task List
+taskRouter.post("/task/list", userAuth, async (req, res)=> {
     try {
         const projectId = req.body.projectId
-        const user = req.user;
 
         const taskList = await Task.find({
             project: projectId
@@ -108,7 +107,7 @@ taskRouter.get("/task/list", userAuth, async (req, res)=> {
 taskRouter.post("/delete/task", userAuth, async (req, res)=> {
     try {
         const taskId = req.body.taskId;
-        const result = await Project.deleteOne({
+        const result = await Task.deleteOne({
             _id: taskId
         })
 

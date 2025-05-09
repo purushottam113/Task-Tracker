@@ -17,13 +17,13 @@ const Login = () => {
       return setErr("Please enter email and passowrd")
     }
 
-
     try {
       const res = await axios.post(BASE_URL + "/login",{
         email,
         password
       },{withCredentials: true})
       setErr("")
+      localStorage.setItem("user",JSON.stringify(res?.data))
       dispatch(addUser(res?.data))
       navigate("/projects")
     } catch (error) {

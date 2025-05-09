@@ -3,7 +3,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { BASE_URL } from '../utils/constants';
 import { removeUser } from '../utils/userSlice';
-import { Link, useNavigate } from 'react-router';
+import { useNavigate } from 'react-router';
 
 const Navbar = () => {
     const user = useSelector((store)=> store.user)
@@ -23,23 +23,23 @@ const Navbar = () => {
   return (
     <div className="flex justify-around items-center bg-purple-600 h-14">
         <h1 
-          className=""
-          onClick={()=>{navigate("/")}}
-        >Task-Tracker</h1>
+          className="text-xl font-bold hover:text-white cursor-pointer"
+          onClick={()=>{navigate("/projects")}}
+        ><i className="ri-task-fill"></i>Task-Tracker</h1>
         <button 
-          className=""
+          className="hover:text-white"
           onClick={()=>{navigate("/projects")}}
         >Projects</button>
         {!user?
           <button 
-          className=""
+          className="hover:text-white"
           onClick={()=>{navigate("/login")}}
-          >Login</button>
+          ><i className="ri-login-box-line"></i>Login</button>
           :
           <button 
-          className=""
+          className="hover:text-red-300"
           onClick={handleLogout}
-          >Logout</button>
+          ><i className="ri-logout-box-line"></i>Logout</button>
         }
     </div>
   )
