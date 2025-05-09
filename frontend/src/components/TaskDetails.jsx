@@ -23,11 +23,11 @@ const TaskDetails = () => {
 
   const removeTask = async (taskId)=> {
     try {
-      const res = await axios.post(BASE_URL + "/delete/task",
+      const res = await axios.delete(BASE_URL + "/delete/task",
         {
-          taskId
-        },
-        {withCredentials: true}
+          data: {taskId},
+          withCredentials: true
+        }
       )
       createMessage("Task Removed")
     } catch (error) {

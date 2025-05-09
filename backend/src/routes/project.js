@@ -51,13 +51,13 @@ projectRouter.get("/projectlist", userAuth, async (req, res)=> {
 })
 
 // Delete Projects
-projectRouter.post("/delete/project", userAuth, async (req, res)=> {
+projectRouter.delete("/delete/project", userAuth, async (req, res)=> {
     try {
         const result = await Project.deleteOne({
             _id: req.body._id,
         })
 
-        res.json(result);
+        res.status(200).json({ message: "Project deleted successfully" });
 
     } catch (error) {
         res.status(500).json({message: error.message})

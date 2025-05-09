@@ -33,12 +33,11 @@ const Projects = () => {
   const removeProject = async (_id, index, event)=> {
     event.stopPropagation();
     try {
-      const res = await axios.post(BASE_URL + "/delete/project",
+      const res = await axios.delete(BASE_URL + "/delete/project",
         {
-          _id
-        },
-        {withCredentials: true}
-      )
+          data: {_id},
+          withCredentials: true,
+        })
       setProjectList(prev=>{
          const newList = prev.filter((p)=>prev.indexOf(p) !== index);
          return newList;

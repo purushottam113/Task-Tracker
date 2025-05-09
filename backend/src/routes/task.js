@@ -104,14 +104,14 @@ taskRouter.post("/task/list", userAuth, async (req, res)=> {
 })
 
 // Delete Task
-taskRouter.post("/delete/task", userAuth, async (req, res)=> {
+taskRouter.delete("/delete/task", userAuth, async (req, res)=> {
     try {
         const taskId = req.body.taskId;
         const result = await Task.deleteOne({
             _id: taskId
         })
 
-        res.json(result);
+        res.status(200).json({ message: "Task deleted successfully" });
 
     } catch (error) {
         res.status(500).json({message: error.message})

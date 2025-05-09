@@ -37,11 +37,11 @@ const TaskList = () => {
     const removeTask = async (taskId, index, event)=> {
       event.stopPropagation();
       try {
-        const res = await axios.post(BASE_URL + "/delete/task",
+        const res = await axios.delete(BASE_URL + "/delete/task",
           {
-            taskId
-          },
-          {withCredentials: true}
+            data: {taskId},
+            withCredentials: true
+          }
         )
         setTasks(prev=>{
            const newList = prev.filter((p)=>prev.indexOf(p) !== index);
