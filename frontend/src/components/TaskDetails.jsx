@@ -14,9 +14,12 @@ const TaskDetails = () => {
   const [createdAt, setCreatedAt] = useState("");
   const [completedAt, setCompletedAt] = useState("");
   const user = useSelector((store)=> store.user)
-  if(!user){
-    navigate("/login")
-  }
+
+  useEffect(()=>{
+    if(!user){
+      navigate("/login")
+    }
+  },[user, navigate]);
 
   const removeTask = async (taskId)=> {
     try {

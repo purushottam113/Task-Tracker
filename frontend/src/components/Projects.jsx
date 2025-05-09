@@ -9,9 +9,12 @@ const Projects = () => {
   const [projectList, setProjectList] = useState([]);
   const navigate = useNavigate();
   const user = useSelector((store)=> store.user)
-  if(!user){
-    navigate("/login")
-  }
+
+  useEffect(()=>{
+    if(!user){
+      navigate("/login")
+    }
+  },[user, navigate]);
 
   try {
   const fetchProjects = async () => {

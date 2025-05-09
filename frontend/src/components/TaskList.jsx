@@ -11,9 +11,12 @@ const TaskList = () => {
     const projectId = location.state?.projectId
     const projectName = location.state?.projectName
     const user = useSelector((store)=> store.user)
+
+  useEffect(()=>{
     if(!user){
       navigate("/login")
     }
+  },[user, navigate]);
 
     try {
     const fetchTasks = async () => {

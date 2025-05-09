@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BASE_URL } from '../utils/constants';
 import { useLocation, useNavigate } from 'react-router';
 import { useSelector } from 'react-redux';
@@ -15,9 +15,12 @@ const CreateTask = () => {
     const projectId = location.state?.projectId;
     const projectName = location.state?.projectName;
     const user = useSelector((store)=> store.user)
-    if(!user){
-      navigate("/login")
-    }
+
+    useEffect(()=>{
+      if(!user){
+        navigate("/login")
+      }
+    },[user, navigate]);
 
     const createTask = async ()=> {
        if(!title){

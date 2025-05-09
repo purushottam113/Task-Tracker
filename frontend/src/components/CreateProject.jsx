@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { BASE_URL } from '../utils/constants';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
@@ -9,9 +9,12 @@ const CreateProject = ({onUpdateList}) => {
     const [err, setErr] = useState("");
     const user = useSelector((store)=> store.user)
     const navigate = useNavigate();
-    if(!user){
-      navigate("/login")
-    }
+
+    useEffect(()=>{
+      if(!user){
+        navigate("/login")
+      }
+    },[user, navigate]);
 
     const addProject = async ()=> {
        if(!name){
